@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Ch1Questions {
+public class Ch1 {
 
     // Q1.1
     static boolean allUnique(String str) {
