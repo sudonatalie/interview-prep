@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 public class Ch2 {
 
@@ -17,6 +18,18 @@ public class Ch2 {
                 n = n.next;
             }
             n.next = end;
+        }
+
+        public String toString() {
+            StringBuffer str = new StringBuffer();
+            Node n = this;
+            while (n != null) {
+                str.append(n.data);
+                str.append("->");
+                n = n.next;
+            }
+            str.append("⊥");
+            return str.toString();
         }
     }
 
@@ -99,7 +112,73 @@ public class Ch2 {
 
     }
 
+    // TODO Q2.3
+
+    // TODO Q2.4
+
+    // Q2.5
+    static Node sumWithCarry(Node a, Node b, int carry) {
+        Node head;
+        if (a == null && b == null) {
+            return null;
+        }
+        else if (a == null) {
+            int val = b.data + carry;
+            head = new Node(val % 10);
+            head.next = sumWithCarry(null, b.next, val / 10);
+        }
+        else if (b == null) {
+            int val = a.data + carry;
+            head = new Node(val % 10);
+            head.next = sumWithCarry(null, a.next, val / 10);
+        }
+        else {
+            int val = a.data + b.data + carry;
+            head = new Node(val % 10);
+            head.next = sumWithCarry(a.next, b.next, val / 10);
+        }
+        return head;
+    }
+
+    static Node sum(Node a, Node b) {
+        return sumWithCarry(a, b, 0);
+    }
+
+    static void test5() {
+        Node empty = null;
+
+        // 1
+        Node singleton = new Node(1);
+
+        // 21
+        Node two = new Node(1);
+        Node two2 = new Node(2);
+        two.next = two2;
+
+        // 210
+        Node three = new Node(0);
+        three.next = two;
+
+        // Test: () + 1 = 1
+        System.out.println(empty + " + " + singleton + " = " + sum(empty, singleton));
+
+        // Test: 21 + () = 21
+        System.out.println(two + " + " + empty + " = " + sum(two, empty));
+
+        // Test: 21 + 1 = 22
+        System.out.println(two + " + " + singleton + " = " + sum(two, singleton));
+
+        // Test: (210 + 1) + 21 = 232
+        System.out.println("(" + three + " + " + singleton + ") + " + two + " = " + sum(sum(three, singleton), two));
+
+    }
+
+    // TODO Q2.6
+
+    // TODO Q2.7
+
     public static void main(String[] args) {
         test2();
+        test5();
     }
 }
