@@ -80,6 +80,58 @@ public class Ch1Questions {
         assert(!isPermutation("AAaaBB", "AaB"));
     }
 
+    // TODO Q1.4
+
+    // TODO Q1.5
+
+    // TODO Q1.6
+    /* Partial solution
+    static class Pixel {
+        byte r;
+        byte g;
+        byte b;
+        byte a;
+    }
+
+    static void rotateImage(Pixel[][] image, int n) {
+        int i = 0;
+        for (int s = n; s > 0; s - 2) {
+            Pixel[] top = new Pixel[s];
+            System.arraycopy(image, topleft, top, 0, s);
+
+            int top = i;
+            int left = i;
+            int bottom = i + s - 1;
+            int right = i + s - 1;
+
+            // Left -> Top
+            for (int j = 0; j < n; j++) {
+                image[top][j] = image[j][left];
+            }
+
+            // Bottom -> Left
+            for (int j = 0; j < n; j++) {
+                image[j][left] = image[bottom][j];
+            }
+
+            // Right -> Bottom
+            for (int j = 0; j < n; j++) {
+                image[bottom][j] = image[s - j][right];
+            }
+
+            // Top -> Right
+            for (int j = 0; j < n; j++) {
+                image[j][right] = top[];
+            }
+
+            i++;
+        }
+    }
+    */
+
+    // TODO Q1.7
+
+    // TODO Q1.8
 
     public static void main(String[] args) {
         test1();
