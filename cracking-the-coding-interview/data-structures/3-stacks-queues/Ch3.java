@@ -103,4 +103,38 @@ public class Ch3 {
     }
     */
 
+    // 3.5
+    public class MyQueue<T> {
+        Stack<T> stack;
+        Stack<T> aux;
+
+        public MyQueue() {
+            stack = new Stack<T>();
+            aux = new Stack<T>();
+        }
+
+        void enqueue(T item) {
+            T top = stack.pop();
+
+            // Reverse "queue" stack onto auxiliary stack
+            while (top != null) {
+                aux.push(top);
+                top = stack.pop();
+            }
+
+            // Put new element at bottom of stack
+            stack.push(item);
+
+            // Re-reverse rest of elements back onto the "queue" stack
+            top = aux.pop();
+            while (aux != null) {
+                stack.push(top);
+                top = aux.pop();
+            }
+        }
+
+        T dequeue() {
+            return stack.pop();
+        }
+    }
 }
