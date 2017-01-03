@@ -137,4 +137,24 @@ public class Ch3 {
             return stack.pop();
         }
     }
+
+    // 3.6
+    // TODO Test 3.6
+    static void sort(Stack<T> stack) {
+        Stack<T> aux = new Stack<T>();
+
+        while(!stack.isEmpty()) {
+            if (aux.isEmpty() || stack.peek() < aux.peek())
+                aux.push(stack.pop());
+            else {
+                Integer tmp = stack.pop();
+                while(!aux.isEmpty() && aux.peek() < tmp) {
+                    stack.push(aux.pop());
+                }
+                aux.push(tmp);
+            }
+        }
+    }
+
+    // TODO 3.7
 }
