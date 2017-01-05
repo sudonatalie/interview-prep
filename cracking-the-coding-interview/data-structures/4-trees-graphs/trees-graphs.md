@@ -8,14 +8,20 @@
 
 ## Binary Tree Traversal
 ### in-order
-left subtree, then current node, then right
+left subtree (recursively), then current node, then right
 
 ### post-order
+left, then right, then current node
 
 ### pre-order
+current node, then left, then right
 
 ## Tree Balacing
 ### Red-Black Trees
+- node is red or black
+- root and leaves are black
+- if node is red, then children are black
+- all paths from node to leaves contain same number of black nodes
 
 ### AVL Trees
 
