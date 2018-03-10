@@ -1,11 +1,11 @@
-#Stacks and Queues
+# Stacks and Queues
 
-##Stack
+## Stack
 LIFO
 
 Can be implemented as linked list, but usually prevent peeking below top node
 
-###Implementation
+### Implementation
 ```
 class Stack {
 	Node top;
@@ -31,10 +31,10 @@ class Stack {
 }
 ```
 
-##Queue
+## Queue
 FIFO
 
-###Implementation
+### Implementation
 ```
 class Queue {
 	Node first, last;
